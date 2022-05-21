@@ -1,13 +1,11 @@
 import './App.css';
-import HomeComponent from './components/pages/HomeComponent/HomeComponent';
 
 function App() {
-	return (
-		<div className=''>
-			<h4>this is react app. this is dev-joy branch.</h4>
-			<HomeComponent />
-		</div>
-	);
+  return (
+    <div className="">
+      <h4>this is react app. this is dev-joy branch.</h4>
+    </div>
+  );
 }
 
 export default App;
