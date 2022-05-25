@@ -1,38 +1,44 @@
 import React, { useState } from "react";
 import LoginImage from "../../../Images/Lunch time-bro.png";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
-  // states
-  const [userInput, setUserInput] = useState({email: '', password: ''});
-  // states from custom-hooks
-  const { handleGoogleLogin, handleLoginUser } = useAuth();
+	// states
+	const [userInput, setUserInput] = useState({ email: '', password: '' });
+	// states from custom-hooks
+	const { user, handleGoogleLogin, handleLoginUser } = useAuth();
+	const navigate = useNavigate();
 
-  // -- handler functions --
+	// if user is logged in, redirect to homepage
+	if (user) {
+		navigate('/', { replace: true });
+	}
 
-  // handling inputs
-  const handleLoginInputs = (e) => {
-    const inputField = e.target.name;
-    const inputValue = e.target.value;
+	// -- handler functions --
 
-    setUserInput({
-      ...userInput,
-      [inputField] : inputValue
-    })
-  }
+	// handling inputs
+	const handleLoginInputs = (e) => {
+		const inputField = e.target.name;
+		const inputValue = e.target.value;
 
-  // handling user login with email and password
-  const handleLogin = () => {
-    if(userInput.email && userInput.password) {
-      handleLoginUser(userInput.email, userInput.password);
-    }
-  }
+		setUserInput({
+			...userInput,
+			[inputField]: inputValue,
+		});
+	};
 
-  console.log(userInput);
+	// handling user login with email and password
+	const handleLogin = () => {
+		if (userInput.email && userInput.password) {
+			handleLoginUser(userInput.email, userInput.password);
+		}
+	};
 
-  return (
+	console.log(userInput);
+
+	return (
 		<div
 			className='container grid grid-cols-2'
 			style={{ maxHeight: 'calc(100vh - 82px)' }}
@@ -103,7 +109,10 @@ const Login = () => {
 							</div>
 						</div>
 					</div>
-					<button onClick={handleLogin} className='mb-3 bg-gray-900 font-medium w-64 p-2 rounded-lg text-white block'>
+					<button
+						onClick={handleLogin}
+						className='mb-3 bg-gray-900 font-medium w-64 p-2 rounded-lg text-white block'
+					>
 						Sign in
 					</button>
 
@@ -132,7 +141,7 @@ const Login = () => {
 				<img className='w-10/12' src={LoginImage} alt='loginImage' />
 			</div>
 		</div>
-  );
+	);
 };
 
 export default Login;

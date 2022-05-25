@@ -1,14 +1,24 @@
 import React, { useState } from 'react';
 import LoginImage from '../../../Images/Lunch time-bro.png';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom'; 
 import useAuth from '../../../hooks/useAuth';
 
 const Register = () => {
 	// states
-	const [userInput, setUserInput] = useState({ name: '', email: '', password: '' });
+	const [userInput, setUserInput] = useState({
+		name: '',
+		email: '',
+		password: '',
+	});
 	// states from custom-hooks
-	const { handleGoogleLogin, handleRegisterUser } = useAuth();
+	const { user, handleGoogleLogin, handleRegisterUser } = useAuth();
+	const navigate = useNavigate();
+
+	// if user is logged in, redirect to homepage
+	if (user) {
+		navigate('/', { replace: true });
+	}
 
 	// -- handler functions --
 
@@ -25,13 +35,14 @@ const Register = () => {
 
 	// handling user login with email and password
 	const handleRegister = () => {
-    const {name, email, password} = userInput;
+		const { name, email, password } = userInput;
 		if (name && email && password) {
 			handleRegisterUser(name, email, password);
 		}
 	};
 
 	console.log(userInput);
+
 	return (
 		<div
 			className='grid grid-cols-2'
@@ -118,7 +129,10 @@ const Register = () => {
 							</div>
 						</div>
 					</div>
-					<button onClick={handleRegister} className='mb-3 bg-gray-900 font-medium w-64 p-2 rounded-lg text-white block'>
+					<button
+						onClick={handleRegister}
+						className='mb-3 bg-gray-900 font-medium w-64 p-2 rounded-lg text-white block'
+					>
 						Sign in
 					</button>
 					{/* google sign in */}
