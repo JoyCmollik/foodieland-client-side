@@ -8,9 +8,10 @@ import {
 	signOut,
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
-    updateProfile,
-    onAuthStateChanged
+	updateProfile,
+	onAuthStateChanged,
 } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 //global declarations
 InitializeFirebaseApp();
@@ -24,19 +25,21 @@ const useFirebase = () => {
 	// -- context and constants --
 	const auth = getAuth();
 	const googleProvider = new GoogleAuthProvider();
+	const navigate = useNavigate();
 
 	// -- functionalities --
 
 	// login user with google
 	const handleGoogleLogin = () => {
-        setIsLoading(true);
+		setIsLoading(true);
 		signInWithPopup(auth, googleProvider)
 			.then((result) => {
 				console.log(result.user);
-                setUser(result.user);
+				setUser(result.user);
+				navigate('/', { replace: true });
 			})
 			.catch((error) => {
-				console.log('error in google login',error);
+				console.log('error in google login', error);
 			})
 			.finally(() => {
 				setIsLoading(false);
@@ -44,23 +47,25 @@ const useFirebase = () => {
 	};
 
 	// register user
-	const handleRegisterUser = (email, password, userDetails) => {
-        setIsLoading(true);
+	const handleRegisterUser = (name, email, password) => {
+		setIsLoading(true);
 
-        createUserWithEmailAndPassword(auth, email, password)
+		createUserWithEmailAndPassword(auth, email, password)
 			.then((result) => {
 				console.log(user);
-                setUser(result.user);
+				setUser(result.user);
 
-                // after getting user - updating user information
-                updateProfile(auth.currentUser ,{displayName: userDetails.name})
-                    .then(() => {
-                        console.log('profile updated')
-                    }).catch(error => {
-                        console.log('error in updating profile', error);
-                    })
+				// after getting user - updating user information
+				updateProfile(auth.currentUser, { displayName: name })
+					.then(() => {
+						console.log('profile updated');
+						navigate('/', { replace: true });
+					})
+					.catch((error) => {
+						console.log('error in updating profile', error);
+					});
 
-                // TODO: store the user in database 
+				// TODO: store the user in database
 			})
 			.catch((error) => {
 				console.log(
@@ -71,16 +76,17 @@ const useFirebase = () => {
 			.finally(() => {
 				setIsLoading(false);
 			});
-    };
+	};
 
-    // login already existing user
-    const handleLoginUser = (email, password) => {
-        setIsLoading(true);
+	// login already existing user
+	const handleLoginUser = (email, password) => {
+		setIsLoading(true);
 
-        signInWithEmailAndPassword(auth, email, password)
+		signInWithEmailAndPassword(auth, email, password)
 			.then((result) => {
 				console.log(result.user);
-                setUser(result.user);
+				setUser(result.user);
+				navigate('/', { replace: true });
 			})
 			.catch((error) => {
 				console.log('error in login with email', error);
@@ -88,15 +94,15 @@ const useFirebase = () => {
 			.finally(() => {
 				setIsLoading(false);
 			});
-    }
+	};
 
 	// signout user
 	const handleSignOut = () => {
-        setIsLoading(true);
+		setIsLoading(true);
 		signOut(auth)
 			.then((result) => {
 				console.log('you are successfully signed off!');
-                setUser(null);
+				setUser(null);
 			})
 			.catch((error) => {
 				console.log(
@@ -104,34 +110,32 @@ const useFirebase = () => {
 					error
 				);
 			})
-            .finally(() => {
-                setIsLoading(false);
-            })
-
+			.finally(() => {
+				setIsLoading(false);
+			});
 	};
 
-    //handling auth state observer
-    useEffect(() => {
-      const unsubscribe = onAuthStateChanged(auth, (user) => {
-          if(user) {
-              setUser(user)
-          } else {
-              setUser(null)
-          }
-      })
-    
-      return () => unsubscribe;
-    }, [auth])
-    
+	//handling auth state observer
+	useEffect(() => {
+		const unsubscribe = onAuthStateChanged(auth, (user) => {
+			if (user) {
+				setUser(user);
+			} else {
+				setUser(null);
+			}
+		});
+
+		return () => unsubscribe;
+	}, [auth]);
 
 	return {
 		user,
 		isLoading,
-        error,
+		error,
 		setIsLoading,
 		handleGoogleLogin,
-        handleRegisterUser,
-        handleLoginUser,
+		handleRegisterUser,
+		handleLoginUser,
 		handleSignOut,
 	};
 };
