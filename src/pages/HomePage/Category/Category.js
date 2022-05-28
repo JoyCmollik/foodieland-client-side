@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const Category = (props) => {
   const { name, img, color } = props.category;
-  console.log(color);
+
   return (
     <div
       className="text-center px-10 border shadow-lg"
