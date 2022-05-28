@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import RecipeTimelineList from "../../RecipeTimelineList/RecipeTimelineList";
+import RecipeTimelineList from "../RecipeTimelineList/RecipeTimelineList";
 
 const RecipeTimeline = () => {
   const [recipeList, setRecipeList] = useState([]);
@@ -11,7 +11,7 @@ const RecipeTimeline = () => {
         setRecipeList(data);
       });
   }, []);
-  
+
   return (
     <div className="mb-60 mx-20">
       {/* title-section */}
@@ -37,7 +37,6 @@ const RecipeTimeline = () => {
           <RecipeTimelineList
             key={recipe.id}
             recipeList={recipe}
-          
           ></RecipeTimelineList>
         ))}
       </div>
