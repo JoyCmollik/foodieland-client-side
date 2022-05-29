@@ -5,6 +5,15 @@ import { AiFillHeart } from "react-icons/ai";
 const RecipeTimelineList = (props) => {
   const { name, img } = props.recipeList;
   const [value, setValue] = useState("text-gray-500");
+  const handleIcon = (newValue) => {
+    if (value === "text-gray-500") {
+      newValue = "text-red-500";
+      setValue(newValue);
+    } else if (value === "text-red-500") {
+      newValue = "text-gray-500";
+      setValue(newValue);
+    }
+  };
   return (
     <div>
       {/* image */}
@@ -17,19 +26,7 @@ const RecipeTimelineList = (props) => {
         />
         <div className="absolute top-0 right-0">
           <p className="border inline-block p-3 rounded-full m-4 bg-white">
-            <AiFillHeart
-              onClick={(event, newValue) => {
-                console.log(event);
-                if (value === "text-gray-500") {
-                  newValue = "text-red-500";
-                  setValue(newValue);
-                } else if (value === "text-red-500") {
-                  newValue = "text-gray-500";
-                  setValue(newValue);
-                }
-              }}
-              className={`w-5 h-5  ${value}`}
-            />
+            <AiFillHeart onClick={handleIcon} className={`w-5 h-5  ${value}`} />
           </p>
         </div>
       </div>
