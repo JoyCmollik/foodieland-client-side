@@ -1,5 +1,9 @@
 import React from "react";
 import higlightImage from "../../../Images/Highlights.png";
+import highlight1 from "../../../Images/highlights1.png";
+import highlight2 from "../../../Images/highlights-2.png";
+import highlight3 from "../../../Images/highlights-3.png";
+import highlight4 from "../../../Images/highlights-4.png";
 const Highlights = () => {
   return (
     <div className="mb-60">
@@ -22,7 +26,7 @@ const Highlights = () => {
           </button>
         </div>
         {/* image */}
-        <div className="mt-36  mr-32 ml-11">
+        <div className="mt-36  mr-32 ml-11 relative">
           <img
             src={higlightImage}
             alt=""
@@ -31,6 +35,19 @@ const Highlights = () => {
                 "linear-gradient(rgba(231, 249,253,0),rgba(231, 249, 253, 1))",
             }}
           />
+          <div className="absolute top-12 left-14">
+            <img src={highlight1} alt="" />
+          </div>
+          <div className="absolute top-20 right-28">
+            <img src={highlight2} alt="" />
+          </div>
+          <div className="absolute top-40 right-0">
+            {" "}
+            <img src={highlight3} alt="" />
+          </div>
+          <div className="absolute bottom-24 left-0">
+            <img src={highlight4} alt="" />
+          </div>
         </div>
       </div>
     </div>
