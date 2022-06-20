@@ -1,8 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Roboto:wght@300;500&display=swap');
-body{
-  font-family: 'Inter', sans-serif;
-font-family: 'Roboto', sans-serif;
+
+body {
+	font-family: 'Inter', sans-serif;
+}
+
+/* custom style classes list */
+.filter-shadow {
+	filter: drop-shadow(10px 20px 40px rgba(41, 64, 70, 0.1));
+}
+
+.btn-with-icon {
+	@apply flex justify-between items-center px-4 py-2 space-x-3 rounded-3xl;
 }

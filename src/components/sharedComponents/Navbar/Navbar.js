@@ -18,8 +18,8 @@ const Navbar = () => {
 
   return (
 		<div className='border border-gray-200  '>
-			<div className='container mx-auto  flex items-center text-base font-medium pt-7 pb-5'>
-				<div className='h-8 w-28 mr-64 ml-20'>
+			<div className='container mx-auto  flex justify-between items-center text-base font-medium pt-7 pb-5'>
+				<div className='h-8 w-28'>
 					<img className='' src={logo} alt='foodieland' />
 				</div>
 				<div className='flex-none space-x-14 '>
