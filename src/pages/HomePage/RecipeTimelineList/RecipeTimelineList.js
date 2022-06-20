@@ -6,10 +6,10 @@ const RecipeTimelineList = (props) => {
   const { name, img } = props.recipeList;
   const [value, setValue] = useState("text-gray-500");
   return (
-    <div>
+    <div className=" mx-auto">
       {/* image */}
 
-      <div className="mb-4 relative">
+      <div className="mb-4 relative ">
         <img
           src={img}
           alt="recipeTimelineList"

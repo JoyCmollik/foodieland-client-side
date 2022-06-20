@@ -5,7 +5,7 @@ const Category = (props) => {
 
   return (
     <div
-      className="text-center px-10 border shadow-lg"
+      className="text-center px-10 border shadow-lg mx-auto"
       style={{
         borderRadius: "30px",
         background: ` linear-gradient(${color})`,
