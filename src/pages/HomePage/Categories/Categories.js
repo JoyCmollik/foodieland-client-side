@@ -12,7 +12,7 @@ const Categories = () => {
   }, []);
   return (
     // categories section
-    <div className=" mx-20 my-20">
+    <div className="mx-20 my-20">
       {/* categories title */}
       <div className="flex justify-between mt-40">
         <h2 className="text-5xl font-semibold">Categories</h2>
