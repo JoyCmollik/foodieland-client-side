@@ -53,7 +53,7 @@ const Hero = () => {
 							/>
 							<div className=''>
 								<h5 className='font-semibold'>John Smith</h5>
-								<p>15 March, 2022</p>
+								<p className='text-black opacity-60'>15 March, 2022</p>
 							</div>
 						</div>
 						{/* button view recipes */}
