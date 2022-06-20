@@ -32,7 +32,7 @@ const RecipeTimeline = () => {
         </p>
       </div>
       {/* RecipeTimelineList */}
-      <div className="grid grid-cols-4 gap-x-10 gap-y-6">
+      <div className="grid grid-cols-4 gap-x-10 gap-y-6 mx-auto">
         {recipeList.map((recipe) => (
           <RecipeTimelineList
             key={recipe.id}

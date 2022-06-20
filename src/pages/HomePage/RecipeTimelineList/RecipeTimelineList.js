@@ -15,10 +15,10 @@ const RecipeTimelineList = (props) => {
     }
   };
   return (
-    <div>
+    <div className=" mx-auto">
       {/* image */}
 
-      <div className="mb-4 relative">
+      <div className="mb-4 relative ">
         <img
           src={img}
           alt="recipeTimelineList"

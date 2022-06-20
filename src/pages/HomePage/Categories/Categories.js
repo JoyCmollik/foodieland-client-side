@@ -21,7 +21,7 @@ const Categories = () => {
         </button>
       </div>
       {/* end of title */}
-      <div className="flex mt-20 justify-between mx">
+      <div className="flex mt-20 justify-between mx-auto">
         {categories.map((category) => (
           <Category key={category.id} category={category}></Category>
         ))}
