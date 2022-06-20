@@ -1,5 +1,6 @@
 import React from "react";
 import Categories from "../Categories/Categories";
+import FeaturedRecipeList from "../FeaturedRecipeList/FeaturedRecipeList";
 import Hero from "../Hero/Hero";
 import Highlights from "../Highlights/Highlights";
 import RecipeTimeline from "../RecipeTimeline/RecipeTimeline";
@@ -10,6 +11,7 @@ const HomePageComponent = () => {
     <>
       <Hero />
       <Categories />
+      <FeaturedRecipeList />
       <Highlights />
       <RecipeTimeline />
       <Subscribe />
