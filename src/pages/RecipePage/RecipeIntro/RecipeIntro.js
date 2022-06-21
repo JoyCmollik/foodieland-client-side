@@ -5,7 +5,8 @@ import person from "../../../Images/RecipeIntro-1.png";
 import recipeBanner from "../../../Images/Recipe-banner.png";
 const RecipeIntro = () => {
   return (
-    <section className="mt-20 mx-20">
+    <section className="my-20 mx-20">
+      {/* title */}
       <h1 className="text-6xl font-semibold">Health Japanese Fried Rice</h1>
       <div className="flex gap-8 flex-row-reverse mr-20">
         <p className="flex flex-col items-center text-xs">
