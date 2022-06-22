@@ -6,10 +6,10 @@ import highlight3 from "../../../Images/highlights-3.png";
 import highlight4 from "../../../Images/highlights-4.png";
 const Highlights = () => {
   return (
-    <div className="mb-60 mx-20">
-      <div className="flex justify-center">
+    <div className="container mx-auto">
+      <div className="grid grid-cols-2 items-center">
         {/* title */}
-        <div className="mx-auto mt-72  ">
+        <div className="">
           <h2 className="text-5xl font-semibold ">
             Everyone can be a <br /> chef in their own kitchen
           </h2>
@@ -26,13 +26,14 @@ const Highlights = () => {
           </button>
         </div>
         {/* image */}
-        <div className="mt-36  mx-auto relative ">
+        <div className="mx-auto relative ">
           <img
             src={higlightImage}
             alt=""
             style={{
               background:
                 "linear-gradient(rgba(231, 249,253,0),rgba(231, 249, 253, 1))",
+                borderRadius: '30px'
             }}
           />
           <div className="absolute top-12 left-14">
@@ -45,7 +46,7 @@ const Highlights = () => {
             {" "}
             <img src={highlight3} alt="" />
           </div>
-          <div className="absolute bottom-24 left-0">
+          <div className="absolute bottom-24 -left-5">
             <img src={highlight4} alt="" />
           </div>
         </div>

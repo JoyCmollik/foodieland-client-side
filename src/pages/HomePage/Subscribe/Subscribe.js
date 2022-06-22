@@ -4,7 +4,7 @@ import subscribe2 from '../../../Images/subscribe-2.png';
 
 const Subscribe = () => {
 	return (
-		<div className='container mx-auto bg-light relative flex flex-col justify-center items-center py-20 rounded-3xl'>
+		<div className='container mx-auto bg-light relative flex flex-col justify-center items-center py-20 rounded-3xl overflow-hidden'>
 			<h4 className='text-5xl font-semibold mb-6'>
 				Deliciousness to your inbox
 			</h4>
