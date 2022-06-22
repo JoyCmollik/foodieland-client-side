@@ -1,17 +1,9 @@
 import React, { useEffect, useState } from "react";
+import useRecipeList from "../../../hooks/useRecipeList";
 import RecipeTimelineList from "../RecipeTimelineList/RecipeTimelineList";
 
 const RecipeTimeline = () => {
-  const [recipeList, setRecipeList] = useState([]);
-
-  useEffect(() => {
-    fetch("recipeTimeline.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setRecipeList(data);
-      });
-  }, []);
-
+  const [recipeList] = useRecipeList();
   return (
     <div className="mb-60 mx-20">
       {/* title-section */}
