@@ -14,7 +14,7 @@ const RecipeIngredients = () => {
               style={{ width: "760px" }}
             >
               <AiFillCheckCircle />
-              <div className="border border-gray-300 w-52 h-0"></div>
+              <span className="border border-gray-300 w-52 h-0"></span>
             </p>
 
             <p

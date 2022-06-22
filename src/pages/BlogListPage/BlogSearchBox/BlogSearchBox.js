@@ -2,7 +2,7 @@ import React from "react";
 
 const BlogSearchBox = () => {
   return (
-    <section className="mt-20 flex flex-col justify-center">
+    <section className="mt-20 flex flex-col justify-center mb-1">
       {/* title */}
       <div className="text-center">
         <h1 className="mb-6 text-center text-6xl font-semibold">
