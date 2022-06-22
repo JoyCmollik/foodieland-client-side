@@ -13,7 +13,7 @@ const RecipeTimeline = () => {
   }, []);
 
   return (
-    <div className="mb-60 mx-20">
+    <div className="container mx-auto">
       {/* title-section */}
       <div
         className="flex justify-between gap-4 "
@@ -32,7 +32,7 @@ const RecipeTimeline = () => {
         </p>
       </div>
       {/* RecipeTimelineList */}
-      <div className="grid grid-cols-4 gap-x-10 gap-y-6 mx-auto">
+      <div className="grid grid-cols-4 gap-x-10 gap-y-6">
         {recipeList.map((recipe) => (
           <RecipeTimelineList
             key={recipe.id}
