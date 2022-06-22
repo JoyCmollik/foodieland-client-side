@@ -1,9 +1,6 @@
 import React from "react";
 import { AiFillCheckCircle } from "react-icons/ai";
-import recipe1 from "../../../Images/ingredients-1.png";
-import recipe2 from "../../../Images/Ingredients-2.png";
-import recipe3 from "../../../Images/ingredients-3.png";
-import ads from "../../../Images/Ads.png";
+import OtherRecipes from "../../../components/sharedComponents/OtherRecipes/OtherRecipes";
 const RecipeIngredients = () => {
   return (
     <section className="mx-20 mb-20">
@@ -67,49 +64,7 @@ const RecipeIngredients = () => {
             </p>
           </div>
         </article>
-        <article className="flex flex-col gap-y-8">
-          <h2 className="text-3xl font-semibold ">Other Recipe</h2>
-          <div className="flex gap-x-6 justify-between">
-            <div>
-              <img src={recipe1} alt="" className="rounded-lg" />
-            </div>
-            <h2 className="text-xl font-semibold ">
-              Chicken Meatball with Creamy Chees...
-              <br />
-              <span className="text-sm font-medium text-gray-600">
-                By Andreas Paula
-              </span>
-            </h2>
-          </div>
-          <div className="flex gap-x-6 justify-between">
-            <div>
-              <img src={recipe2} alt="" className="rounded-lg" />
-            </div>
-            <h2 className="text-xl font-semibold ">
-              The Creamiest Creamy Chicken an...
-              <br />
-              <span className="text-sm font-medium text-gray-600">
-                By Andreas Paula
-              </span>
-            </h2>
-          </div>
-          <div className="flex gap-x-6 justify-between">
-            <div>
-              <img src={recipe3} alt="" className="rounded-lg" />
-            </div>
-            <h2 className="text-xl font-semibold ">
-              Chicken Meatball with Creamy Chees...
-              <br />
-              <span className="text-sm font-medium text-gray-600">
-                By Andreas Paula
-              </span>
-            </h2>
-          </div>
-          {/* ad */}
-          <div className="mt-24">
-            <img src={ads} alt="" />
-          </div>
-        </article>
+        <OtherRecipes title={"Other Recipe"} />
       </div>
     </section>
   );

@@ -4,6 +4,7 @@ import Login from "./components/Login/Login/Login";
 import Register from "./components/Login/Register/Register";
 import Navbar from "./components/sharedComponents/Navbar/Navbar";
 import AuthProvider from "./contexts/AuthProvider";
+import BlogListPageComponent from "./pages/BlogListPage/BlogListPageComponent/BlogListPageComponent";
 import HomePageComponent from "./pages/HomePage/HomePageComponent/HomePageComponent";
 import RecipePageComponent from "./pages/RecipePage/RecipePageComponent/RecipePageComponent";
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/recipes" element={<RecipePageComponent />} />
+          <Route path="/blog" element={<BlogListPageComponent />} />
         </Routes>
       </AuthProvider>
     </Router>
